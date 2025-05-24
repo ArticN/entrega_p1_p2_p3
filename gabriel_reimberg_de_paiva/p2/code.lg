@@ -1,0 +1,32 @@
+inicio
+    int x;
+    float y;
+    string name;
+    bool valid;
+    int nums[5];
+
+    func sum (int a, int b) {
+        int result;
+        result = a + b;
+        return result;
+    }
+
+    x = 10;
+    y = 2.5;
+    name = "Henrique";
+    valid = false;
+    nums[0] = x;
+    nums[1] = sum(x, 5);
+    print(x);
+
+    if (x >= 10) {
+        print(y);
+    } else {
+        print(name);
+    }
+
+    while (x < 12) {
+        x = x + 1;
+    }
+
+fim
