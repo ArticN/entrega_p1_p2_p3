@@ -1,0 +1,7 @@
+PROGRAMA "ExprMult":
+INICIO
+    a = 20
+    b = 3
+    c = 15
+    RES = (a * b) - c
+FIM
