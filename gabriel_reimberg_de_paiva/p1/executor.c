@@ -67,23 +67,5 @@ int main() {
 
     printf("Final AC: 0x%02X\n", ac);
     printf("Final PC: 0x%02X\n", pc);
-    /*
-    int found = 0;
-    int resultAddress = -1;
-    for (int i = HEADERSIZE; i < MEMORYSIZE; i += 2) {
-        if (bytes[i] == ac) {
-            resultAddress = i;
-            found = 1;
-            break;
-        }
-    }
-    if (found) {
-        uint8_t rawResult = bytes[resultAddress];
-        int8_t result = (int8_t)rawResult;
-        printf("The answer is: 0x%02X (hexadecimal) = %d (decimal)\n", rawResult, result);
-    } else {
-        printf("Could not locate the result (RES) in memory.\n");
-    }
-     */
     return 0;
 }
