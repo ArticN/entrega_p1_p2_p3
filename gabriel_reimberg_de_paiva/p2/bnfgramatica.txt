@@ -21,7 +21,7 @@
          | <call_stmt>
          | <return_stmt>
 
-<assign_stmt> ::= <id> ( "[" <expr> "]" )? " " "=" " " <expr> ";"
+<assign_stmt> ::= <id> ( "[" <expr> "]" )? " " ":=" " " <expr> ";"
 
 <print_stmt> ::= "print" " " "(" <expr> ")" ";"
 
