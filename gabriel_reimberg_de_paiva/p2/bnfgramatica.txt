@@ -43,7 +43,7 @@
 
 <expr> ::= <term> ( ( " " "+" " " | " " "-" " " ) <term> )*
 
-<term> ::= <factor> ( ( " " "" " " | " " "/" " " ) <factor> )
+<term> ::= <factor> ( ( " " "*" " " | " " "/" " " ) <factor> )
 
 <factor> ::= <number>
            | <string>
@@ -58,6 +58,6 @@
 
 <number> ::= [0-9]+ ( "." [0-9]+ )?
 
-<string> ::= """ ( [a-z] | [A-Z] | [0-9] | " " )* """
+<string> ::= "\"" ( [a-z] | [A-Z] | [0-9] | " " )* "\""
 
 <bool> ::= "true" | "false"
