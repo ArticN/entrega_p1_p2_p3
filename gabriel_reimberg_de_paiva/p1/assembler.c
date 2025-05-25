@@ -267,12 +267,6 @@ bool assemble(const char* inputFile, const char* outputFile) {
         }
     }
     fclose(fin);
-    
-    /*for (int i = 0; i < symbolCount; i++) {
-        if (!symbols[i].defined) {
-        }
-    }
-    */
 
     FILE *fout = fopen(outputFile, "wb");
     if (!fout) {
@@ -297,12 +291,8 @@ int main(int argc, char *argv[]) {
         outputFile[sizeof(outputFile) - 1] = '\0';
     }
     
-    printf("Montando arquivo: %s -> %s\n", inputFile, outputFile);
-    
-    if (!assemble(inputFile, outputFile)) {
-        fprintf(stderr, "Falha na montagem.\n");
-        return 1;
-    }
+    printf("%s -> %s\n", inputFile, outputFile);
+    if (!assemble(inputFile, outputFile)) {return 1;}
     
     return 0;
 }

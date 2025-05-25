@@ -23,7 +23,7 @@ int main() {
     bool z = false, n = false;
     FILE *file = fopen("programa.mem", "rb");
     if (!file) {
-        perror("Can't open the file");
+        perror("Falha ao abrir .mem");
         return 1;
     }
 
@@ -32,7 +32,7 @@ int main() {
     fread(fileHeader, 1, HEADERSIZE, file);
     const uint8_t expectedHeader[] = {0x03, 0x4E, 0x44, 0x52};
     if (memcmp(fileHeader, expectedHeader, HEADERSIZE) != 0) {
-        printf("Wrong headers!\n");
+        printf("Cabeçalho fora do padrão\n");
         fclose(file);
         return 1;
     }
@@ -55,8 +55,8 @@ int main() {
             case 0x50: ac &= bytes[address]; break;
             case 0x60: ac = ~ac; pc += 2; continue;
             case 0x80: pc = address; continue;
-            case 0x90: if (n) { pc = address; continue; } break; // JMN
-            case 0xA0: if (z) { pc = address; continue; } break; // JMZ
+            case 0x90: if (n) { pc = address; continue; } break;
+            case 0xA0: if (z) { pc = address; continue; } break;
             case 0xF0: break;
         }
 
@@ -67,23 +67,5 @@ int main() {
 
     printf("Final AC: 0x%02X\n", ac);
     printf("Final PC: 0x%02X\n", pc);
-    /*
-    int found = 0;
-    int resultAddress = -1;
-    for (int i = HEADERSIZE; i < MEMORYSIZE; i += 2) {
-        if (bytes[i] == ac) {
-            resultAddress = i;
-            found = 1;
-            break;
-        }
-    }
-    if (found) {
-        uint8_t rawResult = bytes[resultAddress];
-        int8_t result = (int8_t)rawResult;
-        printf("The answer is: 0x%02X (hexadecimal) = %d (decimal)\n", rawResult, result);
-    } else {
-        printf("Could not locate the result (RES) in memory.\n");
-    }
-     */
     return 0;
 }
